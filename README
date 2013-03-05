@@ -1,3 +1,8 @@
 Light, deployable dotfiles. v0.1
 
 Alternative to heavy Ryan Bates / Bryan Stitt original.
+
+NOTES:
+
+# Root user prompt in .bashrc.
+export PS1="\[$COLOR_RED\][\u@\h \W]# \[${COLOR_NC}\]"
