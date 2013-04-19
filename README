@@ -4,5 +4,5 @@ Alternative to heavy Ryan Bates / Bryan Stitt original.
 
 NOTES:
 
-# Root user prompt in .bashrc.
+# Root user prompt in .bashrc. Uncomment line 33.
 export PS1="\[$COLOR_RED\][\u@\h \W]# \[${COLOR_NC}\]"

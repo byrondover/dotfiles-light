@@ -29,6 +29,8 @@ alias colorslist="set | egrep 'COLOR_\w*'"
 
 # prompt
 export PS1="\[$COLOR_GREEN\][\u@\h \W]\$ \[${COLOR_NC}\]"
+# uncomment for root user only
+# export PS1="\[$COLOR_RED\][\u@\h \W]# \[${COLOR_NC}\]"
 
 # grep color options
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
@@ -56,3 +58,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # vim as EDITOR
 export EDITOR=vim
+
+# group-friendly umask
+umask 002
