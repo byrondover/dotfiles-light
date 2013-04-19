@@ -59,5 +59,5 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # vim as EDITOR
 export EDITOR=vim
 
-# group-friendly umask
+# set group-friendly umask
 umask 002
