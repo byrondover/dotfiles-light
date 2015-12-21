@@ -13,9 +13,6 @@ set softtabstop=2       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
 set wrap                " switch wrap on for everything
 
-" disable automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r
-
 " UI Config
 set showcmd             " show command in bottom bar
 set cursorline          " horizonal highlight (current line)
@@ -56,6 +53,9 @@ set wildmenu            " visual autocomplete for command menu
 set encoding=utf-8
 set fileencoding=utf-8
 scriptencoding utf-8
+
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Local Config
 if filereadable('.vimrc.local')
