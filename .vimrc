@@ -1,29 +1,30 @@
-syntax on
-
-" based on https://github.com/jferris/config_files/blob/master/vimrc
-set encoding=utf-8
-set fileencoding=utf-8
-scriptencoding utf-8
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Switch wrap on for everything
-set wrap
+" Color Scheme
+syntax enable
+set background=dark
+colorscheme solarized
 
-" Softtabs, 4 spaces
-set tabstop=4
-set shiftwidth=4
-set expandtab
+" Formatting
+set tabstop=2           " number of visual spaces per TAB
+set softtabstop=2       " number of spaces in tab when editing
+set expandtab           " tabs are spaces
+set wrap                " switch wrap on for everything
 
-" Always display the status line
-set laststatus=2
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r
 
-" Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
-endif
+" UI Config
+set showcmd             " show command in bottom bar
+set cursorline          " horizonal highlight (current line)
+set cursorcolumn        " vertical highlight (current column)
+set showmatch           " highlight matching parentheses
+set laststatus=2        " always display the status line
+
+filetype indent on      " load filetype-specific indent files
+filetype plugin on      " load filetype-specific plugin files
 
 " better statusline
 set statusline=%t       "tail of the filename
@@ -38,12 +39,25 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" python fixes
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-filetype plugin indent on
+" Performance
+set ttyfast                     " faster redraw
+set lazyredraw          " redraw only when we need to
 
-set paste
+" Searching
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
 
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Key Mapping
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Miscellaneous
+set wildmenu            " visual autocomplete for command menu
+set encoding=utf-8
+set fileencoding=utf-8
+scriptencoding utf-8
+
+" Local Config
+if filereadable('.vimrc.local')
+  source .vimrc.local
+endif
