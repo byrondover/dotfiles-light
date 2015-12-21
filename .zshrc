@@ -88,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export HISTSIZE=1000000
+
 h ()
 {
   #search='^f.{27,28}$';
