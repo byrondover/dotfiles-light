@@ -10,7 +10,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
   local return_status="%(?.%{$fg_bold[green]%}%#.%{$fg_bold[red]%}✘)%{$reset_color%}"
   
-  PROMPT='[%{$fg[green]%}%*%{$reset_color%}] %{$fg[cyan]%}%n@%2m%{$reset_color%} %{$fg[blue]%}%~$(git_prompt_info)$(git_prompt_status)%{$reset_color%} ${return_status}%{$reset_color%} '
+  PROMPT='[%{$fg[green]%}%D{%H:%M:%S}%{$reset_color%}] %{$fg[cyan]%}%n@%2m%{$reset_color%} %{$fg[blue]%}%~$(git_prompt_info)$(git_prompt_status)%{$reset_color%} ${return_status}%{$reset_color%} '
 
   ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[yellow]%}["
   ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
