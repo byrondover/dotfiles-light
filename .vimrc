@@ -28,10 +28,10 @@ set laststatus=2                                  " always display the status li
 set statusline=%t                                 "tail of the filename
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}] "file encoding
 set statusline+=[%{&ff}]                          "file format
-set statusline+=%h                                "help file flag
-set statusline+=%m                                "modified flag
-set statusline+=%r                                "read only flag
 set statusline+=%y                                "filetype
+set statusline+=%h                                "help file flag
+set statusline+=%r                                "read only flag
+set statusline+=%m                                "modified flag
 set statusline+=%=                                "left/right separator
 set statusline+=%c,                               "cursor column
 set statusline+=%l/%L                             "cursor line/total lines
@@ -50,10 +50,10 @@ set hlsearch                                      " highlight matches
 nnoremap <leader><space> :nohlsearch<CR>
 
 " prevent jumping viewpane to top/bottom of file
-inoremap <S-Up> <Nop>
-inoremap <S-Down> <Nop>
-nnoremap <S-Up> <Nop>
-nnoremap <S-Down> <Nop>
+inoremap <S-Up> <Up>
+inoremap <S-Down> <Down>
+nnoremap <S-Up> <Up>
+nnoremap <S-Down> <Down>
 
 " get the correct indent for new lines despite blank lines
 inoremap <CR> <CR><Space><BS>
