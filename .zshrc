@@ -5,7 +5,6 @@ export ZSH=/Users/byron/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="byron"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -22,7 +21,7 @@ HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=7
+export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -88,11 +87,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Increase command line history cache size.
 export HISTSIZE=1000000
 
+# Wiredrive reverse DNS search functions.
 h ()
 {
-  #search='^f.{27,28}$';
   search='^[a-z]';
   domain=$1;
   host -la ${domain}.wiredrive.com | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | sort -V | uniq
@@ -114,3 +114,18 @@ source '/Users/byron/google-cloud-sdk/completion.zsh.inc'
 
 # Source secure environment variables.
 source '/Users/byron/.envrc'
+
+# Python virtual environment aliases.
+alias a="source /Users/byron/venv/bin/activate"
+alias d="deactivate"
+alias c="clear"
+
+# virtualenvwrapper environment variables.
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Drive/code
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Pathing shortcuts.
+alias vwd="cd ~/vagrant/vagrant-wiredrive; vagrant ssh"
+alias wd="cd ~/Drive/code/wiredrive"
+alias ws="cd ~/code/workshop"
