@@ -20,5 +20,10 @@ Alternative to Bryan Stitt / Ryan Bates originals.
 
 ## Notes
 
-# Root user prompt in .bashrc. Uncomment line 33.
+### Root user prompt in .bashrc.
+
+Uncomment line 33.
+
+```shell
 export PS1="\[$COLOR_RED\][\u@\h \W]# \[${COLOR_NC}\]"
+```
