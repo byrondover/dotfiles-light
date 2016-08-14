@@ -107,6 +107,7 @@ set sidescroll=1                                  " side scroll one line at a ti
 " Performance
 "
 
+set history=1000                                  " increase command history default
 set ttyfast                                       " faster redraw
 set lazyredraw                                    " redraw only when we need to
 set viminfo='100,\"100,:20,%,n~/.viminfo          " persist command history between sessions
@@ -196,9 +197,8 @@ nnoremap <C-N> :set invnumber<CR>
 "
 
 set autoread                                      " refresh file when changed outside of Vim
-set history=1000                                  " increase command history default
-set visualbell                                    " flash cursor instead of trigger bell
 set noerrorbells                                  " mininize error bell noisiness
+set visualbell                                    " flash cursor instead of trigger bell
 
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
