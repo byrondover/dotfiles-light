@@ -1,1 +1,4 @@
+.git
 .netrwhist
+.vim/cache
+.vim/tmp

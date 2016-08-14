@@ -90,6 +90,13 @@ source $ZSH/oh-my-zsh.sh
 # Increase command line history cache size.
 export HISTSIZE=1000000
 
+# Local reverse DNS function.
+lh ()
+{
+  search='^[a-z]';
+  host -la 192.168.1.1 | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | sort -V | uniq
+}
+
 # Wiredrive reverse DNS search functions.
 h ()
 {
