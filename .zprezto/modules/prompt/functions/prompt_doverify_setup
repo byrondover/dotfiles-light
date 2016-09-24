@@ -1,0 +1,141 @@
+#
+# A simple theme that displays relevant, contextual information.
+#
+# Authors:
+#   Byron Dover <byrondover@gmail.com>
+#
+# Contributors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+#
+# 16 Terminal Colors
+# -- ---------------
+#  0 black
+#  1 red
+#  2 green
+#  3 yellow
+#  4 blue
+#  5 magenta
+#  6 cyan
+#  7 white
+#  8 bright black
+#  9 bright red
+# 10 bright green
+# 11 bright yellow
+# 12 bright blue
+# 13 bright magenta
+# 14 bright cyan
+# 15 bright white
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+function prompt_doverify_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_doverify_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_doverify_pwd=${pwd}
+  fi
+}
+
+function prompt_doverify_git_info {
+  if (( _prompt_doverify_precmd_async_pid > 0 )); then
+    # Append Git status.
+    if [[ -s "$_prompt_doverify_precmd_async_data" ]]; then
+      alias typeset='typeset -g'
+      source "$_prompt_doverify_precmd_async_data"
+      _git_status="${git_info:+${(e)git_info[status]}}"
+      unalias typeset
+    fi
+
+    # Reset PID.
+    _prompt_doverify_precmd_async_pid=0
+
+    # Redisplay prompt.
+    zle && zle reset-prompt
+  fi
+}
+
+function prompt_doverify_precmd_async {
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+    typeset -p git_info >! "$_prompt_doverify_precmd_async_data"
+  fi
+
+  # Signal completion to parent process.
+  kill -WINCH $$
+}
+
+function prompt_doverify_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Format PWD.
+  prompt_doverify_pwd
+
+  # Kill the old process of slow commands if it is still running.
+  if (( _prompt_doverify_precmd_async_pid > 0 )); then
+    kill -KILL "$_prompt_doverify_precmd_async_pid" &>/dev/null
+  fi
+
+  # Compute slow commands in the background.
+  trap prompt_doverify_git_info WINCH
+  prompt_doverify_precmd_async &!
+  _prompt_doverify_precmd_async_pid=$!
+}
+
+function prompt_doverify_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+  _prompt_doverify_precmd_async_pid=0
+  _prompt_doverify_precmd_async_data="${TMPPREFIX}-prompt_doverify_data"
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_doverify_precmd
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{7}...%f%b'
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format '%F{7}:%f%F{9}%s%f'
+  zstyle ':prezto:module:git:info:added' format ' %F{2}✚%f'
+  zstyle ':prezto:module:git:info:ahead' format ' %F{13}⬆%f'
+  zstyle ':prezto:module:git:info:behind' format ' %F{13}⬇%f'
+  zstyle ':prezto:module:git:info:branch' format '%F{3}%b%f'
+  zstyle ':prezto:module:git:info:commit' format ' %F{3}%.7c%f'
+  zstyle ':prezto:module:git:info:deleted' format ' %F{1}✖%f'
+  zstyle ':prezto:module:git:info:modified' format ' %F{4}✹%f'
+  zstyle ':prezto:module:git:info:position' format ' %F{13}%p%f'
+  zstyle ':prezto:module:git:info:renamed' format ' %F{5}➜%f'
+  zstyle ':prezto:module:git:info:unmerged' format ' %F{3}═%f'
+  zstyle ':prezto:module:git:info:untracked' format ' %F{6}✭%f'
+  zstyle ':prezto:module:git:info:keys' format \
+    'status' '%F{3}[%f$(coalesce "%b" "%p" "%c")%F{3}]%f%s%A%B%S%a%d%m%r%U%u '
+
+  # Define prompts.
+  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{10}[%f %F{2}%D{%I:%M:%S}%f %F{10}]%f %F{5}%n%f%F{10}@%f%F{13}%2m%f %F{4}${_prompt_doverify_pwd}%(!. %B%F{1}#%f%b.) ${_git_status}${editor_info[overwrite]}%(?:%F{10}%#%f:%F{9}%#%f)${VIM:+" %B%F{6}V%f%b"} '
+  RPROMPT=''
+  SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
+}
+
+function prompt_doverify_preview {
+  local +h PROMPT=''
+  local +h RPROMPT=''
+  local +h SPROMPT=''
+
+  editor-info 2>/dev/null
+  prompt_preview_theme 'doverify'
+}
+
+prompt_doverify_setup "$@"

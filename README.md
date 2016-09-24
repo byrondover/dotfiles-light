@@ -1,6 +1,6 @@
 # Dotfiles Light
 
-Light, deployable dotfiles. v0.4.
+Light, deployable dotfiles. v0.5.
 
 Alternative to Bryan Stitt / Ryan Bates originals.
 
@@ -20,9 +20,9 @@ Alternative to Bryan Stitt / Ryan Bates originals.
 
 ## Notes
 
-### Root user prompt in .bashrc.
+#### Root user prompt in .bashrc.
 
-Uncomment line 33.
+For root user, uncomment line 33 in `/root/.bashrc`.
 
 ```shell
 export PS1="\[$COLOR_RED\][\u@\h \W]# \[${COLOR_NC}\]"
