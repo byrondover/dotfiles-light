@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cp -Rp .{*bash*,*vim*,*zsh*,*zprezto*} ~/
+cp -Rp .{*bash*,*vim*,*zsh*,*zpr*} ~/
