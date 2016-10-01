@@ -15,15 +15,6 @@ fi
 
 # Customize to your needs...
 
-# Set environment variables.
-export PATH="/Users/byron/google-cloud-sdk/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman"
-
-# Increase command line history cache size.
-export HISTSIZE=1000000
-
-# Function definitions.
-
 # Wiredrive reverse DNS search functions.
 h ()
 {
@@ -61,10 +52,6 @@ source '/Users/byron/.envrc'
 alias a="source /Users/byron/venv/bin/activate"
 alias d="deactivate"
 alias c="clear"
-
-# virtualenvwrapper environment variables.
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/code
 
 # This can take a few seconds...
 source /usr/local/bin/virtualenvwrapper.sh
