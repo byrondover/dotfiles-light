@@ -25,10 +25,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-# set options for less
-export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --tabs=4'
+# Set options for less.
+export LESS='--ignore-case --quit-if-one-screen --status-column --tabs=4 --LONG-PROMPT --RAW-CONTROL-CHARS'
 
-# Set colors for less. Borrowed from https://wiki.archlinux.org/index.php/Color_output_in_console#less .
+# Set colors for less. Borrowed from https://wiki.archlinux.org/index.php/Color_output_in_console#less.
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink

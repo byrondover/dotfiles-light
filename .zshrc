@@ -60,3 +60,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 alias vwd="cd ~/vagrant/vagrant-wiredrive; vagrant ssh"
 alias wd="cd ~/Drive/code/wiredrive"
 alias ws="cd ~/code/workshop"
+
+alias gitlog='git log --graph --branches --date=relative --date-order --oneline --pretty="%C(yellow)%h%C(reset) %an %C(blue)%s %Cgreen(%cr)"'
