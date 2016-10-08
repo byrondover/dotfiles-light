@@ -14,6 +14,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+setopt interactivecomments
 
 # Wiredrive reverse DNS search functions.
 h ()
