@@ -21,14 +21,14 @@ h ()
 {
   search='^[a-z]';
   domain=$1;
-  host -la ${domain}.wiredrive.com | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | sort -V | uniq
+  host -la ${domain}.wiredrive.com | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | gsort -V | uniq
 }
 
 # Local reverse DNS function.
 lh ()
 {
   search='^[a-z]';
-  host -la 192.168.1.1 | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | sort -V | uniq
+  host -la 192.168.1.1 | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | gsort -V | uniq
 }
 
 # Reverse DNS search across all Wiredrive data centers.
@@ -38,6 +38,12 @@ alh ()
   do
     h ${arg} ${x};
   done
+}
+
+# Delete Git branch locally and on the remote origin.
+delete_from_git_origin() {
+  git branch -D $1
+  git push origin --delete $1
 }
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -55,11 +61,13 @@ alias d="deactivate"
 alias c="clear"
 
 # This can take a few seconds...
-source /usr/local/bin/virtualenvwrapper.sh
+alias v="source /usr/local/bin/virtualenvwrapper.sh"
 
 # Pathing shortcuts.
 alias vwd="cd ~/vagrant/vagrant-wiredrive; vagrant ssh"
 alias wd="cd ~/Drive/code/wiredrive"
 alias ws="cd ~/code/workshop"
 
+# Git shortcuts.
 alias gitlog='git log --graph --branches --date=relative --date-order --oneline --pretty="%C(yellow)%h%C(reset) %an %C(blue)%s %Cgreen(%cr)"'
+alias ppp=delete_from_git_origin
