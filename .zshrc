@@ -15,6 +15,9 @@ fi
 
 # Customize to your needs...
 
+# Extend path.
+path=($HOME/bin $GOPATH/bin $HOME/google-cloud-sdk/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
+
 # Enable command line comments.
 setopt interactivecomments
 
@@ -60,5 +63,4 @@ alias gitlog='git log --graph --branches --date=relative --date-order --oneline 
 alias ppp=delete_from_git_origin
 
 # Time-savers.
-
 alias pping="ping 8.8.8.8"
