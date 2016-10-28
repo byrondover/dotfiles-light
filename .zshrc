@@ -49,7 +49,7 @@ alias a="source ${HOME}/venv/bin/activate"
 alias d="deactivate"
 alias c="clear"
 
-# This can take a few seconds...
+# This may take a few seconds...
 alias v="source /usr/local/bin/virtualenvwrapper.sh"
 
 # Pathing shortcuts.
@@ -58,3 +58,7 @@ alias ws="cd ${HOME}/code/workshop"
 # Git shortcuts.
 alias gitlog='git log --graph --branches --date=relative --date-order --oneline --pretty="%C(yellow)%h%C(reset) %an %C(blue)%s %Cgreen(%cr)"'
 alias ppp=delete_from_git_origin
+
+# Time-savers.
+
+alias pping="ping 8.8.8.8"
