@@ -10,5 +10,6 @@ do
   cp -p ~/$file $file
 done
 
+cp -p ~/.gitconfig .gitconfig
 cp -Rp ~/.vim/bundle .vim/
 rm -rf .vim/bundle/*/.git*

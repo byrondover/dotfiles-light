@@ -14,7 +14,7 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 # Extend path.
-export PATH="/Users/byron/bin:/Users/byron/google-cloud-sdk/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="${HOME}/bin:${HOME}/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # Increase command line history cache size.
 export HISTSIZE=1000000
@@ -28,7 +28,8 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # Set options for less.
 export LESS='--ignore-case --quit-if-one-screen --status-column --tabs=4 --LONG-PROMPT --RAW-CONTROL-CHARS'
 
-# Set colors for less. Borrowed from https://wiki.archlinux.org/index.php/Color_output_in_console#less.
+# Set colors for less.
+# Borrowed from https://wiki.archlinux.org/index.php/Color_output_in_console#less.
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink

@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-cp -Rp .{*bash*,*vim*,*zsh*,*zpr*} ~/
+
+cp -p .gitconfig ~/
+cp -Rp .[a-fh-z]* ~/

@@ -14,30 +14,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-setopt interactivecomments
 
-# Wiredrive reverse DNS search functions.
-h ()
-{
-  search='^[a-z]';
-  domain=$1;
-  host -la ${domain}.wiredrive.com | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | gsort -V | uniq
-}
+# Enable command line comments.
+setopt interactivecomments
 
 # Local reverse DNS function.
 lh ()
 {
   search='^[a-z]';
   host -la 192.168.1.1 | awk -F" " '{print $1}' | sed -e 's/\.$//g' | egrep ${search} | gsort -V | uniq
-}
-
-# Reverse DNS search across all Wiredrive data centers.
-alh ()
-{
-  for x in mdr pv;
-  do
-    h ${arg} ${x};
-  done
 }
 
 # Delete Git branch locally and on the remote origin.
@@ -47,16 +32,20 @@ delete_from_git_origin() {
 }
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/byron/google-cloud-sdk/path.zsh.inc'
+if [[ -e "${HOME}/google-cloud-sdk/path.zsh.inc" ]]; then
+  source "${HOME}/google-cloud-sdk/path.zsh.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-source '/Users/byron/google-cloud-sdk/completion.zsh.inc'
+if [[ -e "${HOME}/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+fi
 
 # Source secure environment variables.
-source '/Users/byron/.envrc'
+source "${HOME}/.envrc"
 
 # Python virtual environment aliases.
-alias a="source /Users/byron/venv/bin/activate"
+alias a="source ${HOME}/venv/bin/activate"
 alias d="deactivate"
 alias c="clear"
 
@@ -64,9 +53,7 @@ alias c="clear"
 alias v="source /usr/local/bin/virtualenvwrapper.sh"
 
 # Pathing shortcuts.
-alias vwd="cd ~/vagrant/vagrant-wiredrive; vagrant ssh"
-alias wd="cd ~/Drive/code/wiredrive"
-alias ws="cd ~/code/workshop"
+alias ws="cd ${HOME}/code/workshop"
 
 # Git shortcuts.
 alias gitlog='git log --graph --branches --date=relative --date-order --oneline --pretty="%C(yellow)%h%C(reset) %an %C(blue)%s %Cgreen(%cr)"'

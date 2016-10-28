@@ -2,6 +2,9 @@
 # Sets Prezto options.
 #
 # Authors:
+#   Byron Dover <byrondover@gmail.com>
+#
+# Contributors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
@@ -35,7 +38,6 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'prompt' \
   'syntax-highlighting' \
-  'history-substring-search' \
   'archive' \
   'autosuggestions' \
   'homebrew' \
