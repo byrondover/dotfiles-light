@@ -16,7 +16,7 @@ fi
 # Customize to your needs...
 
 # Extend path.
-path=($HOME/bin $GOPATH/bin $HOME/google-cloud-sdk/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
+path=($HOME/bin $GOPATH/bin $HOME/bin/google-cloud-sdk/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
 
 # Enable command line comments.
 setopt interactivecomments
@@ -35,13 +35,13 @@ delete_from_git_origin() {
 }
 
 # The next line updates PATH for the Google Cloud SDK.
-if [[ -e "${HOME}/google-cloud-sdk/path.zsh.inc" ]]; then
-  source "${HOME}/google-cloud-sdk/path.zsh.inc"
+if [[ -e "${HOME}/bin/google-cloud-sdk/path.zsh.inc" ]]; then
+  source "${HOME}/bin/google-cloud-sdk/path.zsh.inc"
 fi
 
 # The next line enables shell command completion for gcloud.
-if [[ -e "${HOME}/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+if [[ -e "${HOME}/bin/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "${HOME}/bin/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # Source secure environment variables.
