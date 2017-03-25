@@ -48,7 +48,7 @@ fi
 source "${HOME}/.envrc"
 
 # Python virtual environment aliases.
-alias a="source ${HOME}/venv/bin/activate"
+alias a="[ -e ./venv/bin/activate ] && source ./venv/bin/activate || source ${HOME}/venv/bin/activate"
 alias d="deactivate"
 alias c="clear"
 
@@ -63,4 +63,10 @@ alias gitlog='git log --graph --branches --date=relative --date-order --oneline 
 alias ppp=delete_from_git_origin
 
 # Time-savers.
+alias ppg="ping 8.8.8.8"
 alias pping="ping 8.8.8.8"
+
+# AdParlor
+alias ap="cd ${HOME}/code/adparlor"
+alias apgit='git config user.email "bdover@adparlor.com"; git config user.name "Byron Dover"; git config user.username "bdover-ap"'
+alias apshuttle='ssh -i ~/.ssh/adparlor/aws-us-west-2.pem ec2-user@shuttle.adparlordev.com'
