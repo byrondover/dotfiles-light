@@ -8,6 +8,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+ulimit -n 64000
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -70,3 +72,7 @@ alias pping="ping 8.8.8.8"
 alias ap="cd ${HOME}/code/adparlor"
 alias apgit='git config user.email "bdover@adparlor.com"; git config user.name "Byron Dover"; git config user.username "bdover-ap"'
 alias apshuttle='ssh -i ~/.ssh/adparlor/aws-us-west-2.pem ec2-user@shuttle.adparlordev.com'
+
+# Riot Games
+alias rgmac="sudo ifconfig en0 ether 78:4f:43:86:42:1b"
+alias rgmacd="sudo ifconfig en0 ether f4:0f:24:25:70:97"
