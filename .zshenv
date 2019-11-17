@@ -36,9 +36,17 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Editors
-export VISUAL=vim
-export EDITOR="${VISUAL}"
-export GIT_EDITOR="${VISUAL}"
+# See: ~/.zprofile
+export GIT_EDITOR='vim'
+export PAGER='less -RSFX'
 
-# Go path.
+# Go
 export GOPATH=$HOME/code/go
+
+# nvm
+export NVM_DIR=$HOME/.nvm
+
+# Riot Games
+export NODE_ENV=development
+export SLACK_DEVELOPER_MENU=true
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
