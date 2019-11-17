@@ -8,8 +8,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-ulimit -n 64000
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -103,3 +101,4 @@ alias rga="[ -e ${HOME}/.npmrc_bak ] && mv ${HOME}/.npmrc_bak ${HOME}/.npmrc || 
 alias rgd="[ -e ${HOME}/.npmrc ] && mv ${HOME}/.npmrc ${HOME}/.npmrc_bak || echo 'Already deactivated.'"
 alias rgmac="sudo ifconfig en0 ether 78:4f:43:86:42:1b"
 alias rgmacd="sudo ifconfig en0 ether f4:0f:24:25:70:97"
+

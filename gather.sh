@@ -6,5 +6,6 @@ do
 done
 
 cp -p ~/.gitconfig .gitconfig
+cp -p "${HOME}/Library/Application Support/Code/User/settings.json" vscode-settings.json
 cp -Rp ~/.vim/bundle .vim/
 rm -rf .vim/bundle/*/.git*
