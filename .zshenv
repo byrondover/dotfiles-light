@@ -37,8 +37,10 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Editors
 # See: ~/.zprofile
+export EDITOR='vim'
 export GIT_EDITOR='vim'
 export PAGER='less -RSFX'
+export VISUAL='vim'
 
 # Go
 export GOPATH=$HOME/code/go
