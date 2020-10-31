@@ -45,6 +45,10 @@ export VISUAL='vim'
 # Go
 export GOPATH=$HOME/code/go
 
+# Java
+#export JAVA_HOME=$(/usr/libexec/java_home -v 13)
+export JAVA_HOME=$(ls -d /Library/Java/JavaVirtualMachines/*/Contents/Home | tail -n 1)
+
 # nvm
 export NVM_DIR=$HOME/.nvm
 
@@ -52,3 +56,6 @@ export NVM_DIR=$HOME/.nvm
 export NODE_ENV=development
 export SLACK_DEVELOPER_MENU=true
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
+export BAKEPATH=$HOME/code/riotgames/tools-kda/bake
+export R_CODE=$HOME/code/riotgames
+for f in $R_CODE/tools-kda/tools/sourced/*; do source "$f"; done > /dev/null 2>&1

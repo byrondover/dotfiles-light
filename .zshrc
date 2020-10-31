@@ -16,8 +16,7 @@ fi
 # Customize to your needs...
 
 # Extend path
-path=($HOME/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
-#path=($HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin $HOME/bin)
+path=($HOME/bin $HOME/code/riotgames/tools-kda/tools/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
 
 # Enable command line comments
 setopt interactivecomments
@@ -53,6 +52,10 @@ fi
 if [[ -e "${HOME}/bin/google-cloud-sdk/completion.zsh.inc" ]]; then
   source "${HOME}/bin/google-cloud-sdk/completion.zsh.inc"
 fi
+
+# Override .zprofile defaults
+EDITOR='vim'
+VISUAL='vim'
 
 # Source secure environment variables
 source "${HOME}/.envrc"
@@ -95,9 +98,16 @@ alias awskey-atlassian='$(keyconjurer-darwin get -t 30 --ttl 8 riot-atlassian)'
 alias awskey-itapps='$(keyconjurer-darwin get -t 30 --ttl 8 it-applications)'
 alias awskey-pr='$(keyconjurer-darwin get -t 30 --ttl 8 product-riot)'
 alias b='$(keyconjurer-darwin get -t 30 --ttl 8 product-riot)'
+alias cbd='sudo launchctl unload /Library/LaunchDaemons/com.carbonblack.daemon.plist; pkill -9 -f CbOsxSensorService'
 alias rg="cd ${HOME}/code/riotgames"
 alias rgit='git config user.email "bdover@riotgames.com"; git config user.name "Byron Dover"; git config user.username "bdover"'
-alias rga="[ -e ${HOME}/.npmrc_bak ] && mv ${HOME}/.npmrc_bak ${HOME}/.npmrc || echo 'Already active.'"
-alias rgd="[ -e ${HOME}/.npmrc ] && mv ${HOME}/.npmrc ${HOME}/.npmrc_bak || echo 'Already deactivated.'"
+alias rga="[ -e ${HOME}/.npmrc_bak ] && mv -f ${HOME}/.npmrc_bak ${HOME}/.npmrc || echo 'Already active.'"
+alias rgd="[ -e ${HOME}/.npmrc ] && mv -f ${HOME}/.npmrc ${HOME}/.npmrc_bak || echo 'Already deactivated.'"
 alias rgmac="sudo ifconfig en0 ether 78:4f:43:86:42:1b"
 alias rgmacd="sudo ifconfig en0 ether f4:0f:24:25:70:97"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bdover/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bdover/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bdover/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bdover/bin/google-cloud-sdk/completion.zsh.inc'; fi

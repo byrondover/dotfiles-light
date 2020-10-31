@@ -203,17 +203,21 @@ set visualbell                                    " flash cursor instead of trig
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" remember last location in file, but not for commit messages
-" see :help last-position-jump
 function! s:setupWrapping()
   set wrap
   set linebreak
-  set textwidth=72
+  set textwidth=80
   set nolist
 endfunction
 
-au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal! g`\"" | endif
+" remember last location in file, but not for commit messages
+" see :help last-position-jump
+if has("autocmd")
+  autocmd BufReadPost *
+    \ if &filetype !~ '^git\c' && line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+endif
 
 au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 au BufNewFile,BufRead *.json set ft=javascript
