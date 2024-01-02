@@ -16,7 +16,7 @@ fi
 # Customize to your needs...
 
 # Extend path
-path=($HOME/bin $HOME/code/riotgames/tools-kda/tools/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
+path=($HOME/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $HOME/Library/Python/3.11/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
 
 # Enable command line comments
 setopt interactivecomments
@@ -111,3 +111,23 @@ if [ -f '/Users/bdover/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bdov
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bdover/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bdover/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+#        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+

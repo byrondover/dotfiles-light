@@ -53,9 +53,9 @@ export JAVA_HOME=$(ls -d /Library/Java/JavaVirtualMachines/*/Contents/Home | tai
 export NVM_DIR=$HOME/.nvm
 
 # Riot Games
-export NODE_ENV=development
+#export NODE_ENV=development
 export SLACK_DEVELOPER_MENU=true
-export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
-export BAKEPATH=$HOME/code/riotgames/tools-kda/bake
-export R_CODE=$HOME/code/riotgames
-for f in $R_CODE/tools-kda/tools/sourced/*; do source "$f"; done > /dev/null 2>&1
+#export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
+#export BAKEPATH=$HOME/code/riotgames/tools-kda/bake
+#export R_CODE=$HOME/code/riotgames
+#for f in $R_CODE/tools-kda/tools/sourced/*; do source "$f"; done > /dev/null 2>&1
