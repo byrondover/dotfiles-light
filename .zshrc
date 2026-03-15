@@ -15,8 +15,12 @@ fi
 
 # Customize to your needs...
 
+source ~/zsh-defer/zsh-defer.plugin.zsh
+
+zsh-defer -t 2.5 nvm install --default --lts
+
 # Extend path
-path=($HOME/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $HOME/Library/Python/3.11/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
+#path=($HOME/bin $HOME/bin/google-cloud-sdk/bin $HOME/.config/yarn/global/node_modules/.bin $HOME/Library/Python/3.11/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /usr/bin /bin /usr/sbin /sbin)
 
 # Enable command line comments
 setopt interactivecomments
@@ -79,7 +83,8 @@ alias gitlog='git log --graph --branches --date=relative --date-order --oneline 
 alias ppp=delete_from_git_origin
 
 # Node
-alias n="source /usr/local/opt/nvm/nvm.sh"
+#alias n="source /usr/local/opt/nvm/nvm.sh"
+alias n="nvm install --default --lts"
 alias webpack="/usr/bin/which -s webpack > /dev/null 2>&1 || ./node_modules/.bin/webpack"
 
 # Time-savers
@@ -99,12 +104,19 @@ alias awskey-itapps='$(keyconjurer-darwin get -t 30 --ttl 8 it-applications)'
 alias awskey-pr='$(keyconjurer-darwin get -t 30 --ttl 8 product-riot)'
 alias b='$(keyconjurer-darwin get -t 30 --ttl 8 product-riot)'
 alias cbd='sudo launchctl unload /Library/LaunchDaemons/com.carbonblack.daemon.plist; pkill -9 -f CbOsxSensorService'
+alias mcp="cd ${HOME}/code/modernclassrooms"
+alias nsm="cd ${HOME}/code/modernclassrooms/mcp-next-step-math"
 alias rg="cd ${HOME}/code/riotgames"
 alias rgit='git config user.email "bdover@riotgames.com"; git config user.name "Byron Dover"; git config user.username "bdover"'
 alias rga="[ -e ${HOME}/.npmrc_bak ] && mv -f ${HOME}/.npmrc_bak ${HOME}/.npmrc || echo 'Already active.'"
 alias rgd="[ -e ${HOME}/.npmrc ] && mv -f ${HOME}/.npmrc ${HOME}/.npmrc_bak || echo 'Already deactivated.'"
 alias rgmac="sudo ifconfig en0 ether 78:4f:43:86:42:1b"
 alias rgmacd="sudo ifconfig en0 ether f4:0f:24:25:70:97"
+
+# Commands
+
+#alias claude="claude --verbose"
+#alias firebase="npx firebase"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bdover/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bdover/bin/google-cloud-sdk/path.zsh.inc'; fi
@@ -131,3 +143,6 @@ source <(ng completion script)
 #unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Added by Antigravity
+export PATH="/Users/byrondover/.antigravity/antigravity/bin:$PATH"

@@ -1,6 +1,6 @@
 [user]
 	name = Byron Dover
-	email = byrondover+github@gmail.com
+	email = byron.dover@gmail.com
 	username = byrondover
 [core]
 	editor = vim
@@ -10,4 +10,13 @@
 [init]
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
+[lfs "customtransfer.xet"]
+	path = git-xet
+	args = transfer
+	concurrent = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -54,8 +54,11 @@ export NVM_DIR=$HOME/.nvm
 
 # Riot Games
 #export NODE_ENV=development
-export SLACK_DEVELOPER_MENU=true
 #export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
 #export BAKEPATH=$HOME/code/riotgames/tools-kda/bake
 #export R_CODE=$HOME/code/riotgames
 #for f in $R_CODE/tools-kda/tools/sourced/*; do source "$f"; done > /dev/null 2>&1
+
+# dev
+export PLAYWRIGHT_MCP_EXTENSION_TOKEN=qlY4tVaCwNqGBSelpCLiDFcRDYXoxWNbgdFccXQ9o9E
+export SLACK_DEVELOPER_MENU=true
